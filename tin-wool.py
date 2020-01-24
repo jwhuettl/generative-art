@@ -6,6 +6,7 @@ def setup():
 
   stroke(210)
   strokeWeight(2)
+  strokeJoin(ROUND)
   curveTightness(3)
   noFill()
   noLoop()
@@ -29,6 +30,19 @@ def distCalc(one, two):
   dist = xDist + yDist
 
   return dist
+
+
+def drawWoolNew(x, y, d, t):
+  # version using shapes
+
+  beginShape()
+
+  for i in range(t):
+    pt = pointGen(x, y, d)
+    vertex(pt[0], pt[1])
+
+  endShape()
+
 
 def drawWool(x, y, d, t):
   # drawing wool
@@ -55,9 +69,9 @@ def draw():
   while (y < height):
     x = 150
     while (x < width):
-      drawWool(x, y, diameter, int(random(7, 17)))
+      drawWoolNew(x, y, diameter, int(random(7, 17)))
       x += 225
     y += 225
 
-  name = "tin_wool" + str(int(time.time()))
+  name = "images/tin_wool" + str(int(time.time()))
   save(name)
