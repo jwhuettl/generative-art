@@ -31,6 +31,19 @@ def distCalc(one, two):
 
   return dist
 
+
+def drawWoolNew(x, y, d, t):
+  # version using shapes
+
+  beginShape()
+
+  for i in range(t):
+    pt = pointGen(x, y, d)
+    vertex(pt[0], pt[1])
+
+  endShape()
+
+
 def drawWool(x, y, d, t):
   # drawing wool with individual lines
   # lines are not connected
@@ -81,6 +94,7 @@ def draw():
   while (y < height):
     x = 150
     while (x < width):
+<<<<<<< HEAD
       drawWoolShape(x, y, diameter, int(random(10, 20)))
       x += 225
     y += 225
@@ -88,3 +102,11 @@ def draw():
   # saving to images directory
   # name = "imagestin_wool" + str(int(time.time()))
   # save(name)
+=======
+      drawWoolNew(x, y, diameter, int(random(7, 17)))
+      x += 225
+    y += 225
+
+  name = "images/tin_wool" + str(int(time.time()))
+  save(name)
+>>>>>>> 7b7a6b90f64c0752a7859d56a28504f35641884e
